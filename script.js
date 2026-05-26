@@ -37,7 +37,16 @@ const translations = {
     submittingButton: "Submitting...",
     requiredMessage: "Please complete all required fields and agree to all terms.",
     successMessage: "Registration submitted successfully.",
-    failedMessage: "Submit failed. Please try again."
+    failedMessage: "Submit failed. Please try again.",
+
+    successTitle: "Thank you for registering",
+    successText1:
+      "Thank you for registering as a member of Everest Poker Room.",
+    successText2:
+      "Your registration has been received.",
+    successText3:
+      "Please visit the counter to provide your ID, complete verification, and receive your member number.",
+    closeButton: "Close"
   },
 
   zh: {
@@ -75,7 +84,16 @@ const translations = {
     submittingButton: "送出中...",
     requiredMessage: "請完成所有必填欄位，並勾選同意所有條款。",
     successMessage: "註冊資料已成功送出。",
-    failedMessage: "送出失敗，請再試一次。"
+    failedMessage: "送出失敗，請再試一次。",
+
+    successTitle: "感謝您的註冊",
+    successText1:
+      "感謝您註冊成為 Everest Poker Room 會員。",
+    successText2:
+      "我們已收到您的會員註冊資料。",
+    successText3:
+      "請至櫃台提供ID完成身份確認並取得會員號碼。",
+    closeButton: "關閉"
   },
 
   ja: {
@@ -113,7 +131,16 @@ const translations = {
     submittingButton: "送信中...",
     requiredMessage: "必須項目をすべて入力し、すべての規約に同意してください。",
     successMessage: "登録情報が送信されました。",
-    failedMessage: "送信に失敗しました。もう一度お試しください。"
+    failedMessage: "送信に失敗しました。もう一度お試しください。",
+
+    successTitle: "ご登録ありがとうございます",
+    successText1:
+      "Everest Poker Room の会員登録ありがとうございます。",
+    successText2:
+      "登録情報を受け付けました。",
+    successText3:
+      "カウンターにてIDをご提示いただき、本人確認を完了後、会員番号をお受け取りください。",
+    closeButton: "閉じる"
   },
 
   ko: {
@@ -151,7 +178,16 @@ const translations = {
     submittingButton: "제출 중...",
     requiredMessage: "필수 항목을 모두 입력하고 모든 약관에 동의해 주세요.",
     successMessage: "등록 정보가 성공적으로 제출되었습니다.",
-    failedMessage: "제출에 실패했습니다. 다시 시도해 주세요."
+    failedMessage: "제출에 실패했습니다. 다시 시도해 주세요.",
+
+    successTitle: "등록해 주셔서 감사합니다",
+    successText1:
+      "Everest Poker Room 회원으로 등록해 주셔서 감사합니다.",
+    successText2:
+      "회원 등록 정보가 접수되었습니다.",
+    successText3:
+      "카운터에서 ID를 제시하고 본인 확인을 완료한 후 회원 번호를 받아 주세요.",
+    closeButton: "닫기"
   },
 
   th: {
@@ -189,7 +225,16 @@ const translations = {
     submittingButton: "กำลังส่ง...",
     requiredMessage: "กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วนและยอมรับข้อกำหนดทั้งหมด",
     successMessage: "ส่งข้อมูลการสมัครเรียบร้อยแล้ว",
-    failedMessage: "ส่งข้อมูลไม่สำเร็จ กรุณาลองอีกครั้ง"
+    failedMessage: "ส่งข้อมูลไม่สำเร็จ กรุณาลองอีกครั้ง",
+
+    successTitle: "ขอบคุณสำหรับการสมัครสมาชิก",
+    successText1:
+      "ขอบคุณที่สมัครเป็นสมาชิกของ Everest Poker Room",
+    successText2:
+      "เราได้รับข้อมูลการสมัครสมาชิกของท่านแล้ว",
+    successText3:
+      "กรุณาแสดง ID ที่เคาน์เตอร์เพื่อยืนยันตัวตนและรับหมายเลขสมาชิก",
+    closeButton: "ปิด"
   },
 
   vi: {
@@ -227,13 +272,24 @@ const translations = {
     submittingButton: "Đang gửi...",
     requiredMessage: "Vui lòng điền đầy đủ các mục bắt buộc và đồng ý với tất cả điều khoản.",
     successMessage: "Thông tin đăng ký đã được gửi thành công.",
-    failedMessage: "Gửi không thành công. Vui lòng thử lại."
+    failedMessage: "Gửi không thành công. Vui lòng thử lại.",
+
+    successTitle: "Cảm ơn bạn đã đăng ký",
+    successText1:
+      "Cảm ơn bạn đã đăng ký làm thành viên của Everest Poker Room.",
+    successText2:
+      "Chúng tôi đã nhận được thông tin đăng ký thành viên của bạn.",
+    successText3:
+      "Vui lòng xuất trình ID tại quầy để hoàn tất xác minh và nhận mã số thành viên.",
+    closeButton: "Đóng"
   }
 };
 
 const languageSelect = document.getElementById("language");
 const form = document.getElementById("registrationForm");
 const message = document.getElementById("message");
+const successModal = document.getElementById("successModal");
+const closeSuccessModal = document.getElementById("closeSuccessModal");
 
 function setLanguage(lang) {
   const selectedTranslations = translations[lang] || translations.en;
@@ -271,7 +327,7 @@ form.addEventListener("submit", async function (event) {
 
   if (!form.checkValidity()) {
     message.textContent = t.requiredMessage;
-    message.style.color = "red";
+    message.style.color = "#f87171";
     form.reportValidity();
     return;
   }
@@ -292,20 +348,25 @@ form.addEventListener("submit", async function (event) {
       mode: "no-cors"
     });
 
-    message.textContent = t.successMessage;
-    message.style.color = "green";
+    message.textContent = "";
 
     form.reset();
     languageSelect.value = lang;
     setLanguage(lang);
+
+    successModal.classList.remove("hidden");
   } catch (error) {
     console.error("Submit error:", error);
     message.textContent = t.failedMessage;
-    message.style.color = "red";
+    message.style.color = "#f87171";
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = t.submitButton;
   }
+});
+
+closeSuccessModal.addEventListener("click", function () {
+  successModal.classList.add("hidden");
 });
 
 setLanguage("en");
