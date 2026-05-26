@@ -68,14 +68,28 @@
         <label data-i18n="referralMemberId">Referral Member ID</label>
         <input type="text" name="referralMemberId" />
 
-        <div class="agreement">
-          <input type="checkbox" id="agreement" name="agreement" required />
-          <label for="agreement" data-i18n="agreementText">
-            I confirm that the information provided is true and accurate, and I agree to register as a member of Everest Poker Room.
-          </label>
-        </div>
+<h2 data-i18n="termsTitle">Terms and Agreement</h2>
 
-        <button type="submit" data-i18n="submitButton">Submit Registration</button>
+<div class="terms-box">
+  <p data-i18n="termsText1">
+    I confirm that all information provided is true, complete, and accurate.
+  </p>
+  <p data-i18n="termsText2">
+    I agree to register as a member of Everest Poker Room.
+  </p>
+  <p data-i18n="termsText3">
+    I agree that Everest Poker Room may collect and use my personal information for membership registration, identity verification, customer service, and related operational purposes.
+  </p>
+</div>
+
+<div class="agreement">
+  <input type="checkbox" id="agreement" name="agreement" required />
+  <label for="agreement" data-i18n="agreementText">
+    I have read and agree to the terms above.
+  </label>
+</div>
+
+<button type="submit" data-i18n="submitButton">Submit Registration</button>
 
         <p id="message"></p>
       </form>
