@@ -51,7 +51,13 @@
         <label data-i18n="mobileNumber">Mobile Number *</label>
         <div class="phone-row">
           <input type="text" name="countryCode" placeholder="+63" required />
-          <input type="tel" name="mobileNumber" data-i18n-placeholder="mobilePlaceholder" placeholder="Mobile Number" required />
+          <input
+            type="tel"
+            name="mobileNumber"
+            data-i18n-placeholder="mobilePlaceholder"
+            placeholder="Mobile Number"
+            required
+          />
         </div>
 
         <label>WhatsApp</label>
@@ -68,28 +74,51 @@
         <label data-i18n="referralMemberId">Referral Member ID</label>
         <input type="text" name="referralMemberId" />
 
-<h2 data-i18n="termsTitle">Terms and Agreement</h2>
+        <h2 data-i18n="termsTitle">Terms and Agreement</h2>
 
-<div class="terms-box">
-  <p data-i18n="termsText1">
-    I confirm that all information provided is true, complete, and accurate.
-  </p>
-  <p data-i18n="termsText2">
-    I agree to register as a member of Everest Poker Room.
-  </p>
-  <p data-i18n="termsText3">
-    I agree that Everest Poker Room may collect and use my personal information for membership registration, identity verification, customer service, and related operational purposes.
-  </p>
-</div>
+        <div class="terms-box">
+          <div class="term-item">
+            <input type="checkbox" id="term1" name="term1" required />
+            <label for="term1">
+              <span class="term-number">1.</span>
+              <span data-i18n="termsText1">
+                I confirm that all information provided is true, complete, and accurate.
+              </span>
+            </label>
+          </div>
 
-<div class="agreement">
-  <input type="checkbox" id="agreement" name="agreement" required />
-  <label for="agreement" data-i18n="agreementText">
-    I have read and agree to the terms above.
-  </label>
-</div>
+          <div class="term-item">
+            <input type="checkbox" id="term2" name="term2" required />
+            <label for="term2">
+              <span class="term-number">2.</span>
+              <span data-i18n="termsText2">
+                I agree to register as a member of Everest Poker Room.
+              </span>
+            </label>
+          </div>
 
-<button type="submit" data-i18n="submitButton">Submit Registration</button>
+          <div class="term-item">
+            <input type="checkbox" id="term3" name="term3" required />
+            <label for="term3">
+              <span class="term-number">3.</span>
+              <span data-i18n="termsText3">
+                I agree that Everest Poker Room may collect and use my personal information for membership registration, identity verification, customer service, and related operational purposes.
+              </span>
+            </label>
+          </div>
+
+          <div class="term-item">
+            <input type="checkbox" id="term4" name="term4" required />
+            <label for="term4">
+              <span class="term-number">4.</span>
+              <span data-i18n="termsText4">
+                I understand that my membership registration may be reviewed and verified by Everest Poker Room staff.
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" data-i18n="submitButton">Submit Registration</button>
 
         <p id="message"></p>
       </form>
