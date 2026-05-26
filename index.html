@@ -9,6 +9,10 @@
 <body>
   <main class="container">
     <section class="card">
+      <div class="logo-wrapper">
+        <img src="logo.png" alt="Everest Poker Room Logo" class="logo" />
+      </div>
+
       <h1 data-i18n="title">Welcome to Everest Poker Room</h1>
       <p class="subtitle" data-i18n="subtitle">Member Registration</p>
 
@@ -124,6 +128,26 @@
       </form>
     </section>
   </main>
+
+  <div id="successModal" class="success-modal hidden">
+    <div class="success-card">
+      <img src="logo.png" alt="Everest Poker Room Logo" class="success-logo" />
+      <div class="success-icon">✓</div>
+      <h2 data-i18n="successTitle">Thank you for registering</h2>
+      <p data-i18n="successText1">
+        Thank you for registering as a member of Everest Poker Room.
+      </p>
+      <p data-i18n="successText2">
+        Your registration has been received.
+      </p>
+      <p data-i18n="successText3">
+        Please visit the counter to provide your ID, complete verification, and receive your member number.
+      </p>
+      <button type="button" id="closeSuccessModal" data-i18n="closeButton">
+        Close
+      </button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
