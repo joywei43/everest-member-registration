@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everest Poker Room Registration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Welcome to Everest Poker Room</h1>
+      <p class="subtitle">Member Registration</p>
+
+      <label for="language">Language</label>
+      <select id="language" name="language">
+        <option value="en" selected>English</option>
+        <option value="zh">中文</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+        <option value="th">ภาษาไทย</option>
+        <option value="vi">Tiếng Việt</option>
+      </select>
+
+      <form id="registrationForm">
+        <h2>Basic KYC Information</h2>
+
+        <label>Surname *</label>
+        <input type="text" name="surname" required />
+
+        <label>Middle Name</label>
+        <input type="text" name="middleName" />
+
+        <label>Family Name *</label>
+        <input type="text" name="familyName" required />
+
+        <label>Nationality *</label>
+        <input type="text" name="nationality" required />
+
+        <label>Birthday *</label>
+        <input type="date" name="birthday" required />
+
+        <label>Passport Number / ID Number *</label>
+        <input type="text" name="idNumber" required />
+
+        <label>Email *</label>
+        <input type="email" name="email" required />
+
+        <h2>Contact Information</h2>
+
+        <label>Mobile Number *</label>
+        <div class="phone-row">
+          <input type="text" name="countryCode" placeholder="+63" required />
+          <input type="tel" name="mobileNumber" placeholder="Mobile Number" required />
+        </div>
+
+        <label>WhatsApp</label>
+        <input type="text" name="whatsapp" />
+
+        <label>Telegram</label>
+        <input type="text" name="telegram" />
+
+        <label>LINE</label>
+        <input type="text" name="line" />
+
+        <h2>Referral</h2>
+
+        <label>Referral Member ID</label>
+        <input type="text" name="referralMemberId" />
+
+        <div class="agreement">
+          <input type="checkbox" id="agreement" name="agreement" required />
+          <label for="agreement">
+            I confirm that the information provided is true and accurate, and I agree to register as a member of Everest Poker Room.
+          </label>
+        </div>
+
+        <button type="submit">Submit Registration</button>
+
+        <p id="message"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
