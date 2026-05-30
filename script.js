@@ -8,7 +8,7 @@ const translations = {
     languageLabel: "Language",
 
     basicInfo: "Basic KYC Information",
-    surname: "Surname *",
+    givenname: "Givenname *",
     middleName: "Middle Name",
     familyName: "Family Name *",
     nationality: "Nationality *",
@@ -55,7 +55,7 @@ const translations = {
     languageLabel: "語言",
 
     basicInfo: "基本 KYC 資料",
-    surname: "名字 / Given Name *",
+    givenname: "名字 / Given Name *",
     middleName: "中間名",
     familyName: "姓氏 / Family Name *",
     nationality: "國籍 *",
@@ -102,7 +102,7 @@ const translations = {
     languageLabel: "言語",
 
     basicInfo: "基本KYC情報",
-    surname: "名 / Given Name *",
+    givenname: "名 / Given Name *",
     middleName: "ミドルネーム",
     familyName: "姓 / Family Name *",
     nationality: "国籍 *",
@@ -149,7 +149,7 @@ const translations = {
     languageLabel: "언어",
 
     basicInfo: "기본 KYC 정보",
-    surname: "이름 / Given Name *",
+    givenname: "이름 / Given Name *",
     middleName: "중간 이름",
     familyName: "성 / Family Name *",
     nationality: "국적 *",
@@ -196,7 +196,7 @@ const translations = {
     languageLabel: "ภาษา",
 
     basicInfo: "ข้อมูล KYC พื้นฐาน",
-    surname: "ชื่อ / Given Name *",
+    givenname: "ชื่อ / Given Name *",
     middleName: "ชื่อกลาง",
     familyName: "นามสกุล / Family Name *",
     nationality: "สัญชาติ *",
@@ -243,7 +243,7 @@ const translations = {
     languageLabel: "Ngôn ngữ",
 
     basicInfo: "Thông tin KYC cơ bản",
-    surname: "Tên / Given Name *",
+    givenname: "Tên / Given Name *",
     middleName: "Tên đệm",
     familyName: "Họ / Family Name *",
     nationality: "Quốc tịch *",
