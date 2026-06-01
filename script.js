@@ -9,6 +9,7 @@ const translations = {
 
     basicInfo: "Basic KYC Information",
 
+    givenName: "Given Name *",
     givenname: "Given Name *",
     givenNameLabel: "Given Name *",
     givenNamePlaceholder: "Enter your given name",
@@ -53,6 +54,7 @@ const translations = {
 
     basicInfo: "基本 KYC 資料",
 
+    givenName: "名字 *",
     givenname: "名字 *",
     givenNameLabel: "名字 *",
     givenNamePlaceholder: "請輸入名字",
@@ -97,6 +99,7 @@ const translations = {
 
     basicInfo: "基本KYC情報",
 
+    givenName: "名 *",
     givenname: "名 *",
     givenNameLabel: "名 *",
     givenNamePlaceholder: "名を入力してください",
@@ -141,6 +144,7 @@ const translations = {
 
     basicInfo: "기본 KYC 정보",
 
+    givenName: "이름 *",
     givenname: "이름 *",
     givenNameLabel: "이름 *",
     givenNamePlaceholder: "이름을 입력해 주세요",
@@ -185,6 +189,7 @@ const translations = {
 
     basicInfo: "ข้อมูล KYC พื้นฐาน",
 
+    givenName: "ชื่อจริง *",
     givenname: "ชื่อจริง *",
     givenNameLabel: "ชื่อจริง *",
     givenNamePlaceholder: "กรุณากรอกชื่อจริง",
@@ -229,6 +234,7 @@ const translations = {
 
     basicInfo: "Thông tin KYC cơ bản",
 
+    givenName: "Tên *",
     givenname: "Tên *",
     givenNameLabel: "Tên *",
     givenNamePlaceholder: "Nhập tên của bạn",
