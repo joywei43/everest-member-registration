@@ -1,5 +1,7 @@
 const MEMBERS_API_URL = "https://script.google.com/macros/s/AKfycbwr5uYjgfcfcHecsngGZHHpepxK_M_Vy-ya1PhdQOpOuD996I8KDADrkdYSmUu6oqL_/exec";
-
+const MEMBER_PORTAL_URL = MEMBERS_API_URL;
+const STAFF_PORTAL_URL = MEMBERS_API_URL + "?page=staff";
+const CAGE_PORTAL_URL = MEMBERS_API_URL + "?page=cage";
 const translations = {
   en: {
     title: "Everest Poker Room",
