@@ -1,90 +1,65 @@
-const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwr5uYjgfcfcHecsngGZHHpepxK_M_Vy-ya1PhdQOpOuD996I8KDADrkdYSmUu6oqL_/exec";
+const MEMBERS_API_URL = "https://script.google.com/macros/s/AKfycbwr5uYjgfcfcHecsngGZHHpepxK_M_Vy-ya1PhdQOpOuD996I8KDADrkdYSmUu6oqL_/exec";
 
 const translations = {
   en: {
-    title: "Welcome to Everest Poker Room",
+    title: "Everest Poker Room",
     subtitle: "Member Registration",
     languageLabel: "Language",
-
-    basicInfo: "Basic KYC Information",
-
-    givenName: "Given Name *",
-    givenname: "Given Name *",
-    givenNameLabel: "Given Name *",
-    givenNamePlaceholder: "Enter your given name",
-
-    middleName: "Middle Name",
-    familyName: "Family Name *",
-    nationality: "Nationality *",
-    birthday: "Birthday *",
-    idNumber: "Passport Number / ID Number *",
-    email: "Email *",
-
+    personalInfo: "Personal Information",
     contactInfo: "Contact Information",
-    mobileNumber: "Mobile Number *",
-    mobilePlaceholder: "Mobile Number",
-
-    referral: "Referral",
-    referralMemberId: "Referral Member ID",
-
-    termsTitle: "Terms and Agreement",
-    termsText1: "I confirm that all information provided is true, complete, and accurate.",
-    termsText2: "I agree to register as a member of Everest Poker Room.",
-    termsText3: "I agree that Everest Poker Room may collect and use my personal information for membership registration, identity verification, customer service, and related operational purposes.",
-    termsText4: "I understand that my membership registration may be reviewed and verified by Everest Poker Room staff.",
-
-    submitButton: "Submit Registration",
-    submittingButton: "Submitting...",
-    requiredMessage: "Please complete all required fields and agree to all terms.",
+    surname: "Surname",
+    middleName: "Middle Name",
+    familyName: "Family / Given Name",
+    nickName: "Nick Name",
+    nickNamePlaceholder: "Optional",
+    nationality: "Nationality",
+    birthday: "Date of Birth",
+    passportId: "Passport / ID Number",
+    email: "Email",
+    phone: "Phone Number",
+    referralId: "Referral ID",
+    referralPlaceholder: "Optional",
+    terms1: "I confirm that the information provided is true and accurate.",
+    terms2: "I confirm that I meet the legal age requirement to enter and participate.",
+    terms3: "I agree to follow all Everest Poker Room membership rules and house policies.",
+    submit: "Submit Registration",
+    submitting: "Submitting...",
+    requiredMessage: "Please complete all required fields and confirm all terms.",
     successMessage: "Registration submitted successfully.",
-    failedMessage: "Submit failed. Please try again.",
-
-    successTitle: "Thank you for registering",
-    successText1: "Thank you for registering as a member of Everest Poker Room.",
-    successText2: "Your registration has been received.",
-    successText3: "Please visit the counter to provide your ID, complete verification, and receive your member number.",
+    errorMessage: "Submission failed. Please try again or contact staff.",
+    successTitle: "Thank you for your registration",
+    successText1: "Thank you for registering as an Everest Poker Room member.",
+    successText2: "We have received your membership registration information.",
+    successText3: "Please proceed to the counter with your ID to complete identity verification and receive your member code.",
     closeButton: "Close"
   },
 
   zh: {
-    title: "歡迎加入 Everest Poker Room",
+    title: "Everest Poker Room",
     subtitle: "會員註冊",
     languageLabel: "語言",
-
-    basicInfo: "基本 KYC 資料",
-
-    givenName: "名字 *",
-    givenname: "名字 *",
-    givenNameLabel: "名字 *",
-    givenNamePlaceholder: "請輸入名字",
-
+    personalInfo: "個人資料",
+    contactInfo: "聯絡資料",
+    surname: "姓氏",
     middleName: "中間名",
-    familyName: "姓氏 *",
-    nationality: "國籍 *",
-    birthday: "生日 *",
-    idNumber: "護照號碼 / 身分證號碼 *",
-    email: "Email *",
-
-    contactInfo: "聯絡方式",
-    mobileNumber: "手機號碼 *",
-    mobilePlaceholder: "手機號碼",
-
-    referral: "推薦資訊",
-    referralMemberId: "推薦會員 ID",
-
-    termsTitle: "條款與同意事項",
-    termsText1: "我確認所提供的所有資料皆為真實、完整且正確。",
-    termsText2: "我同意註冊成為 Everest Poker Room 會員。",
-    termsText3: "我同意 Everest Poker Room 蒐集並使用我的個人資料，用於會員註冊、身份確認、客戶服務及相關營運用途。",
-    termsText4: "我了解我的會員註冊資料可能會由 Everest Poker Room 工作人員進行審核與確認。",
-
-    submitButton: "送出註冊",
-    submittingButton: "送出中...",
-    requiredMessage: "請完成所有必填欄位，並勾選同意所有條款。",
+    familyName: "名字",
+    nickName: "暱稱",
+    nickNamePlaceholder: "選填",
+    nationality: "國籍",
+    birthday: "出生日期",
+    passportId: "護照 / 身分證號碼",
+    email: "電子信箱",
+    phone: "電話號碼",
+    referralId: "推薦人 ID",
+    referralPlaceholder: "選填",
+    terms1: "我確認所提供的資料皆為真實且正確。",
+    terms2: "我確認本人符合進入及參與活動之法定年齡要求。",
+    terms3: "我同意遵守 Everest Poker Room 會員規則及場館政策。",
+    submit: "送出註冊",
+    submitting: "送出中...",
+    requiredMessage: "請完成所有必填欄位並勾選所有確認項目。",
     successMessage: "註冊資料已成功送出。",
-    failedMessage: "送出失敗，請再試一次。",
-
+    errorMessage: "送出失敗，請重新嘗試或聯繫現場人員。",
     successTitle: "感謝您的註冊",
     successText1: "感謝您註冊成為 Everest Poker Room 會員。",
     successText2: "我們已收到您的會員註冊資料。",
@@ -93,265 +68,276 @@ const translations = {
   },
 
   ja: {
-    title: "Everest Poker Room へようこそ",
+    title: "Everest Poker Room",
     subtitle: "会員登録",
     languageLabel: "言語",
-
-    basicInfo: "基本KYC情報",
-
-    givenName: "名 *",
-    givenname: "名 *",
-    givenNameLabel: "名 *",
-    givenNamePlaceholder: "名を入力してください",
-
-    middleName: "ミドルネーム",
-    familyName: "姓 *",
-    nationality: "国籍 *",
-    birthday: "生年月日 *",
-    idNumber: "パスポート番号 / ID番号 *",
-    email: "Email *",
-
+    personalInfo: "個人情報",
     contactInfo: "連絡先情報",
-    mobileNumber: "携帯番号 *",
-    mobilePlaceholder: "携帯番号",
-
-    referral: "紹介情報",
-    referralMemberId: "紹介会員ID",
-
-    termsTitle: "規約および同意事項",
-    termsText1: "入力したすべての情報が真実、完全、かつ正確であることを確認します。",
-    termsText2: "Everest Poker Room の会員として登録することに同意します。",
-    termsText3: "Everest Poker Room が会員登録、本人確認、カスタマーサービス、および関連する運営目的のために個人情報を収集・使用することに同意します。",
-    termsText4: "会員登録情報が Everest Poker Room のスタッフによって確認および審査される場合があることを理解します。",
-
-    submitButton: "登録を送信",
-    submittingButton: "送信中...",
-    requiredMessage: "必須項目をすべて入力し、すべての規約に同意してください。",
+    surname: "姓",
+    middleName: "ミドルネーム",
+    familyName: "名",
+    nickName: "ニックネーム",
+    nickNamePlaceholder: "任意",
+    nationality: "国籍",
+    birthday: "生年月日",
+    passportId: "パスポート / ID 番号",
+    email: "メール",
+    phone: "電話番号",
+    referralId: "紹介者 ID",
+    referralPlaceholder: "任意",
+    terms1: "入力した情報が真実かつ正確であることを確認します。",
+    terms2: "入場および参加に必要な法定年齢を満たしていることを確認します。",
+    terms3: "Everest Poker Room の会員規則およびハウスポリシーに同意します。",
+    submit: "登録を送信",
+    submitting: "送信中...",
+    requiredMessage: "必須項目をすべて入力し、確認事項に同意してください。",
     successMessage: "登録情報が送信されました。",
-    failedMessage: "送信に失敗しました。もう一度お試しください。",
-
+    errorMessage: "送信に失敗しました。再度お試しいただくか、スタッフにお問い合わせください。",
     successTitle: "ご登録ありがとうございます",
     successText1: "Everest Poker Room の会員登録ありがとうございます。",
-    successText2: "登録情報を受け付けました。",
-    successText3: "カウンターにてIDをご提示いただき、本人確認を完了後、会員番号をお受け取りください。",
+    successText2: "会員登録情報を受け付けました。",
+    successText3: "ID を持ってカウンターにお越しいただき、本人確認後に会員番号をお受け取りください。",
     closeButton: "閉じる"
   },
 
   ko: {
-    title: "Everest Poker Room에 오신 것을 환영합니다",
+    title: "Everest Poker Room",
     subtitle: "회원 등록",
     languageLabel: "언어",
-
-    basicInfo: "기본 KYC 정보",
-
-    givenName: "이름 *",
-    givenname: "이름 *",
-    givenNameLabel: "이름 *",
-    givenNamePlaceholder: "이름을 입력해 주세요",
-
-    middleName: "중간 이름",
-    familyName: "성 *",
-    nationality: "국적 *",
-    birthday: "생년월일 *",
-    idNumber: "여권 번호 / 신분증 번호 *",
-    email: "Email *",
-
+    personalInfo: "개인 정보",
     contactInfo: "연락처 정보",
-    mobileNumber: "휴대폰 번호 *",
-    mobilePlaceholder: "휴대폰 번호",
-
-    referral: "추천 정보",
-    referralMemberId: "추천 회원 ID",
-
-    termsTitle: "약관 및 동의사항",
-    termsText1: "제공한 모든 정보가 사실이며 완전하고 정확함을 확인합니다.",
-    termsText2: "Everest Poker Room 회원으로 등록하는 것에 동의합니다.",
-    termsText3: "Everest Poker Room이 회원 등록, 본인 확인, 고객 서비스 및 관련 운영 목적을 위해 개인정보를 수집하고 사용하는 것에 동의합니다.",
-    termsText4: "회원 등록 정보가 Everest Poker Room 직원에 의해 검토 및 확인될 수 있음을 이해합니다.",
-
-    submitButton: "등록 제출",
-    submittingButton: "제출 중...",
-    requiredMessage: "필수 항목을 모두 입력하고 모든 약관에 동의해 주세요.",
+    surname: "성",
+    middleName: "중간 이름",
+    familyName: "이름",
+    nickName: "닉네임",
+    nickNamePlaceholder: "선택 사항",
+    nationality: "국적",
+    birthday: "생년월일",
+    passportId: "여권 / 신분증 번호",
+    email: "이메일",
+    phone: "전화번호",
+    referralId: "추천인 ID",
+    referralPlaceholder: "선택 사항",
+    terms1: "제공한 정보가 사실이며 정확함을 확인합니다.",
+    terms2: "입장 및 참여를 위한 법적 연령 요건을 충족함을 확인합니다.",
+    terms3: "Everest Poker Room 회원 규정 및 하우스 정책을 준수하는 데 동의합니다.",
+    submit: "등록 제출",
+    submitting: "제출 중...",
+    requiredMessage: "모든 필수 항목을 입력하고 확인 사항에 동의해주세요.",
     successMessage: "등록 정보가 성공적으로 제출되었습니다.",
-    failedMessage: "제출에 실패했습니다. 다시 시도해 주세요.",
-
+    errorMessage: "제출에 실패했습니다. 다시 시도하거나 직원에게 문의해주세요.",
     successTitle: "등록해 주셔서 감사합니다",
     successText1: "Everest Poker Room 회원으로 등록해 주셔서 감사합니다.",
-    successText2: "회원 등록 정보가 접수되었습니다.",
-    successText3: "카운터에서 ID를 제시하고 본인 확인을 완료한 후 회원 번호를 받아 주세요.",
+    successText2: "회원 등록 정보를 접수했습니다.",
+    successText3: "카운터에서 ID 확인을 완료한 후 회원 번호를 받으시기 바랍니다.",
     closeButton: "닫기"
   },
 
   th: {
-    title: "ยินดีต้อนรับสู่ Everest Poker Room",
-    subtitle: "สมัครสมาชิก",
+    title: "Everest Poker Room",
+    subtitle: "ลงทะเบียนสมาชิก",
     languageLabel: "ภาษา",
-
-    basicInfo: "ข้อมูล KYC พื้นฐาน",
-
-    givenName: "ชื่อจริง *",
-    givenname: "ชื่อจริง *",
-    givenNameLabel: "ชื่อจริง *",
-    givenNamePlaceholder: "กรุณากรอกชื่อจริง",
-
-    middleName: "ชื่อกลาง",
-    familyName: "นามสกุล *",
-    nationality: "สัญชาติ *",
-    birthday: "วันเกิด *",
-    idNumber: "หมายเลขหนังสือเดินทาง / หมายเลขบัตรประชาชน *",
-    email: "Email *",
-
+    personalInfo: "ข้อมูลส่วนตัว",
     contactInfo: "ข้อมูลติดต่อ",
-    mobileNumber: "หมายเลขโทรศัพท์มือถือ *",
-    mobilePlaceholder: "หมายเลขโทรศัพท์มือถือ",
-
-    referral: "ข้อมูลผู้แนะนำ",
-    referralMemberId: "รหัสสมาชิกผู้แนะนำ",
-
-    termsTitle: "ข้อกำหนดและการยินยอม",
-    termsText1: "ข้าพเจ้าขอยืนยันว่าข้อมูลทั้งหมดที่ให้ไว้เป็นความจริง ครบถ้วน และถูกต้อง",
-    termsText2: "ข้าพเจ้ายินยอมสมัครเป็นสมาชิกของ Everest Poker Room",
-    termsText3: "ข้าพเจ้ายินยอมให้ Everest Poker Room เก็บรวบรวมและใช้ข้อมูลส่วนบุคคลของข้าพเจ้าเพื่อการสมัครสมาชิก การยืนยันตัวตน การบริการลูกค้า และวัตถุประสงค์ด้านการดำเนินงานที่เกี่ยวข้อง",
-    termsText4: "ข้าพเจ้าเข้าใจว่าข้อมูลการสมัครสมาชิกของข้าพเจ้าอาจได้รับการตรวจสอบและยืนยันโดยพนักงานของ Everest Poker Room",
-
-    submitButton: "ส่งข้อมูลสมัครสมาชิก",
-    submittingButton: "กำลังส่ง...",
-    requiredMessage: "กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วนและยอมรับข้อกำหนดทั้งหมด",
-    successMessage: "ส่งข้อมูลการสมัครเรียบร้อยแล้ว",
-    failedMessage: "ส่งข้อมูลไม่สำเร็จ กรุณาลองอีกครั้ง",
-
-    successTitle: "ขอบคุณสำหรับการสมัครสมาชิก",
-    successText1: "ขอบคุณที่สมัครเป็นสมาชิกของ Everest Poker Room",
-    successText2: "เราได้รับข้อมูลการสมัครสมาชิกของท่านแล้ว",
-    successText3: "กรุณาแสดง ID ที่เคาน์เตอร์เพื่อยืนยันตัวตนและรับหมายเลขสมาชิก",
+    surname: "นามสกุล",
+    middleName: "ชื่อกลาง",
+    familyName: "ชื่อ",
+    nickName: "ชื่อเล่น",
+    nickNamePlaceholder: "ไม่บังคับ",
+    nationality: "สัญชาติ",
+    birthday: "วันเกิด",
+    passportId: "หมายเลขหนังสือเดินทาง / บัตรประชาชน",
+    email: "อีเมล",
+    phone: "เบอร์โทรศัพท์",
+    referralId: "รหัสผู้แนะนำ",
+    referralPlaceholder: "ไม่บังคับ",
+    terms1: "ข้าพเจ้ายืนยันว่าข้อมูลที่ให้ไว้เป็นความจริงและถูกต้อง",
+    terms2: "ข้าพเจ้ายืนยันว่ามีอายุถึงเกณฑ์ตามกฎหมายสำหรับการเข้าใช้บริการและเข้าร่วมกิจกรรม",
+    terms3: "ข้าพเจ้าตกลงปฏิบัติตามกฎสมาชิกและนโยบายของ Everest Poker Room",
+    submit: "ส่งข้อมูลลงทะเบียน",
+    submitting: "กำลังส่ง...",
+    requiredMessage: "กรุณากรอกข้อมูลที่จำเป็นและยืนยันเงื่อนไขทั้งหมด",
+    successMessage: "ส่งข้อมูลลงทะเบียนเรียบร้อยแล้ว",
+    errorMessage: "ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่หรือติดต่อเจ้าหน้าที่",
+    successTitle: "ขอบคุณสำหรับการลงทะเบียน",
+    successText1: "ขอบคุณที่ลงทะเบียนเป็นสมาชิก Everest Poker Room",
+    successText2: "เราได้รับข้อมูลการลงทะเบียนสมาชิกของคุณแล้ว",
+    successText3: "กรุณานำ ID ไปที่เคาน์เตอร์เพื่อยืนยันตัวตนและรับหมายเลขสมาชิก",
     closeButton: "ปิด"
   },
 
   vi: {
-    title: "Chào mừng đến với Everest Poker Room",
+    title: "Everest Poker Room",
     subtitle: "Đăng ký thành viên",
     languageLabel: "Ngôn ngữ",
-
-    basicInfo: "Thông tin KYC cơ bản",
-
-    givenName: "Tên *",
-    givenname: "Tên *",
-    givenNameLabel: "Tên *",
-    givenNamePlaceholder: "Nhập tên của bạn",
-
-    middleName: "Tên đệm",
-    familyName: "Họ *",
-    nationality: "Quốc tịch *",
-    birthday: "Ngày sinh *",
-    idNumber: "Số hộ chiếu / Số ID *",
-    email: "Email *",
-
+    personalInfo: "Thông tin cá nhân",
     contactInfo: "Thông tin liên hệ",
-    mobileNumber: "Số điện thoại di động *",
-    mobilePlaceholder: "Số điện thoại di động",
-
-    referral: "Thông tin giới thiệu",
-    referralMemberId: "Mã thành viên giới thiệu",
-
-    termsTitle: "Điều khoản và Thỏa thuận",
-    termsText1: "Tôi xác nhận rằng tất cả thông tin đã cung cấp là đúng, đầy đủ và chính xác.",
-    termsText2: "Tôi đồng ý đăng ký làm thành viên của Everest Poker Room.",
-    termsText3: "Tôi đồng ý cho Everest Poker Room thu thập và sử dụng thông tin cá nhân của tôi cho mục đích đăng ký thành viên, xác minh danh tính, chăm sóc khách hàng và các hoạt động vận hành liên quan.",
-    termsText4: "Tôi hiểu rằng thông tin đăng ký thành viên của tôi có thể được nhân viên Everest Poker Room xem xét và xác minh.",
-
-    submitButton: "Gửi đăng ký",
-    submittingButton: "Đang gửi...",
-    requiredMessage: "Vui lòng điền đầy đủ các mục bắt buộc và đồng ý với tất cả điều khoản.",
+    surname: "Họ",
+    middleName: "Tên đệm",
+    familyName: "Tên",
+    nickName: "Biệt danh",
+    nickNamePlaceholder: "Không bắt buộc",
+    nationality: "Quốc tịch",
+    birthday: "Ngày sinh",
+    passportId: "Số hộ chiếu / ID",
+    email: "Email",
+    phone: "Số điện thoại",
+    referralId: "ID người giới thiệu",
+    referralPlaceholder: "Không bắt buộc",
+    terms1: "Tôi xác nhận rằng thông tin đã cung cấp là đúng và chính xác.",
+    terms2: "Tôi xác nhận rằng tôi đáp ứng độ tuổi hợp pháp để vào và tham gia.",
+    terms3: "Tôi đồng ý tuân thủ các quy định thành viên và chính sách của Everest Poker Room.",
+    submit: "Gửi đăng ký",
+    submitting: "Đang gửi...",
+    requiredMessage: "Vui lòng hoàn tất các trường bắt buộc và xác nhận tất cả điều khoản.",
     successMessage: "Thông tin đăng ký đã được gửi thành công.",
-    failedMessage: "Gửi không thành công. Vui lòng thử lại.",
-
+    errorMessage: "Gửi thất bại. Vui lòng thử lại hoặc liên hệ nhân viên.",
     successTitle: "Cảm ơn bạn đã đăng ký",
-    successText1: "Cảm ơn bạn đã đăng ký làm thành viên của Everest Poker Room.",
+    successText1: "Cảm ơn bạn đã đăng ký thành viên Everest Poker Room.",
     successText2: "Chúng tôi đã nhận được thông tin đăng ký thành viên của bạn.",
-    successText3: "Vui lòng xuất trình ID tại quầy để hoàn tất xác minh và nhận mã số thành viên.",
+    successText3: "Vui lòng đến quầy cùng với ID để hoàn tất xác minh danh tính và nhận mã thành viên.",
     closeButton: "Đóng"
   }
 };
 
-const languageSelect = document.getElementById("language");
-const form = document.getElementById("registrationForm");
-const message = document.getElementById("message");
-const successModal = document.getElementById("successModal");
-const closeSuccessModal = document.getElementById("closeSuccessModal");
+let currentLanguage = "en";
 
-function setLanguage(lang) {
-  const selectedTranslations = translations[lang] || translations.en;
+document.addEventListener("DOMContentLoaded", () => {
+  const languageSelect = document.getElementById("language");
+  const registerForm = document.getElementById("registerForm");
+  const closeModalBtn = document.getElementById("closeModalBtn");
 
-  document.documentElement.lang = lang;
+  const savedLanguage = localStorage.getItem("everest_register_language");
+
+  if (savedLanguage && translations[savedLanguage]) {
+    currentLanguage = savedLanguage;
+    languageSelect.value = savedLanguage;
+  }
+
+  applyLanguage(currentLanguage);
+
+  languageSelect.addEventListener("change", () => {
+    currentLanguage = languageSelect.value;
+    localStorage.setItem("everest_register_language", currentLanguage);
+    applyLanguage(currentLanguage);
+  });
+
+  registerForm.addEventListener("submit", handleSubmit);
+
+  closeModalBtn.addEventListener("click", () => {
+    closeSuccessModal();
+  });
+});
+
+function t(key) {
+  return translations[currentLanguage]?.[key] || translations.en[key] || key;
+}
+
+function applyLanguage(lang) {
+  const dict = translations[lang] || translations.en;
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
-
-    if (selectedTranslations[key]) {
-      element.textContent = selectedTranslations[key];
+    if (dict[key]) {
+      element.textContent = dict[key];
     }
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
     const key = element.getAttribute("data-i18n-placeholder");
-
-    if (selectedTranslations[key]) {
-      element.placeholder = selectedTranslations[key];
+    if (dict[key]) {
+      element.placeholder = dict[key];
     }
   });
-
-  message.textContent = "";
 }
 
-languageSelect.addEventListener("change", function () {
-  setLanguage(this.value);
-});
-
-form.addEventListener("submit", async function (event) {
+async function handleSubmit(event) {
   event.preventDefault();
 
-  const lang = languageSelect.value;
-  const t = translations[lang] || translations.en;
+  const form = document.getElementById("registerForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const formMessage = document.getElementById("formMessage");
+
+  formMessage.textContent = "";
+  formMessage.className = "form-message";
 
   if (!form.checkValidity()) {
-    message.textContent = t.requiredMessage;
-    message.style.color = "#f87171";
+    formMessage.textContent = t("requiredMessage");
+    formMessage.classList.add("error");
     form.reportValidity();
     return;
   }
 
-  const submitButton = form.querySelector("button[type='submit']");
-  submitButton.disabled = true;
-  submitButton.textContent = t.submittingButton;
+  const payload = {
+    surname: getValue("surname"),
+    middleName: getValue("middleName"),
+    familyName: getValue("familyName"),
+    nickName: getValue("nickName"),
+    nationality: getValue("nationality"),
+    birthday: getValue("birthday"),
+    passportId: getValue("passportId"),
+    email: getValue("email"),
+    phone: getValue("phone"),
+    whatsapp: getValue("whatsapp"),
+    telegram: getValue("telegram"),
+    line: getValue("line"),
+    referralId: getValue("referralId"),
+    agreedTerms: getChecked("agreeTerms"),
+    agreedAge: getChecked("agreeAge"),
+    agreedPolicy: getChecked("agreePolicy"),
+    language: currentLanguage,
+    source: "Register Form"
+  };
 
-  const formData = new FormData(form);
-  formData.append("language", lang);
-  formData.append("agreement", "Yes");
+  if (!payload.agreedTerms || !payload.agreedAge || !payload.agreedPolicy) {
+    formMessage.textContent = t("requiredMessage");
+    formMessage.classList.add("error");
+    return;
+  }
+
+  setSubmitting(true, submitBtn);
 
   try {
-    await fetch(GOOGLE_SCRIPT_URL, {
+    const response = await fetch(MEMBERS_API_URL, {
       method: "POST",
-      body: formData,
-      mode: "no-cors"
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(payload)
     });
 
-    message.textContent = "";
     form.reset();
-    languageSelect.value = lang;
-    setLanguage(lang);
-    successModal.classList.remove("hidden");
+    formMessage.textContent = t("successMessage");
+    formMessage.classList.add("success");
+    showSuccessModal();
+
   } catch (error) {
-    console.error("Submit error:", error);
-    message.textContent = t.failedMessage;
-    message.style.color = "#f87171";
+    console.error("Registration error:", error);
+    formMessage.textContent = t("errorMessage");
+    formMessage.classList.add("error");
   } finally {
-    submitButton.disabled = false;
-    submitButton.textContent = t.submitButton;
+    setSubmitting(false, submitBtn);
   }
-});
+}
 
-closeSuccessModal.addEventListener("click", function () {
-  successModal.classList.add("hidden");
-});
+function getValue(id) {
+  return document.getElementById(id)?.value?.trim() || "";
+}
 
-setLanguage("en");
+function getChecked(id) {
+  return document.getElementById(id)?.checked || false;
+}
+
+function setSubmitting(isSubmitting, button) {
+  button.disabled = isSubmitting;
+  button.querySelector("span").textContent = isSubmitting ? t("submitting") : t("submit");
+}
+
+function showSuccessModal() {
+  document.getElementById("successModal").classList.remove("hidden");
+}
+
+function closeSuccessModal() {
+  document.getElementById("successModal").classList.add("hidden");
+}
