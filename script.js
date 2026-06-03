@@ -9,7 +9,7 @@ const translations = {
     contactInfo: "Contact Information",
     surname: "Surname",
     middleName: "Middle Name",
-    familyName: "Family / Given Name",
+    familyName: "Given Name",
     nickName: "Nick Name",
     nickNamePlaceholder: "Optional",
     nationality: "Nationality",
