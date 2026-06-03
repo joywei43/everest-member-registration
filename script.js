@@ -1,4 +1,4 @@
-const MEMBERS_API_URL = "https://script.google.com/macros/s/AKfycbw2FVucrIiijmtdUKP_07c65z9T1U1R1rZtAsZtC2FE7O7f_e5lSMw5iOkDrZLqaBcJ/exec";
+const MEMBERS_API_URL = "https://script.google.com/macros/s/AKfycbyALYMa624HcSCtQmB1Oq5_g7LdNqQdXS_nUENb8D4U29gWB1SYHC-4mp5RzTjpTQZ2/exec";
 
 const translations = {
   en: {
