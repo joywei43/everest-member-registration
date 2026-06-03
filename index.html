@@ -3,157 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Everest Poker Room Registration</title>
+
+  <title>Everest Poker Room Member Registration</title>
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <main class="container">
+  <main class="page">
     <section class="card">
-      <div class="logo-wrapper">
-        <img src="logo.png" alt="Everest Poker Room Logo" class="logo" />
+      <div class="brand">
+        <div class="logo-mark">▲</div>
+        <div>
+          <h1 data-i18n="title">Everest Poker Room</h1>
+          <p data-i18n="subtitle">Member Registration</p>
+        </div>
       </div>
 
-      <h1 data-i18n="title">Welcome to Everest Poker Room</h1>
-      <p class="subtitle" data-i18n="subtitle">Member Registration</p>
+      <div class="language-row">
+        <label for="language" data-i18n="languageLabel">Language</label>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="th">ไทย</option>
+          <option value="vi">Tiếng Việt</option>
+        </select>
+      </div>
 
-      <label for="language" data-i18n="languageLabel">Language</label>
-      <select id="language" name="language">
-        <option value="en" selected>English</option>
-        <option value="zh">中文</option>
-        <option value="ja">日本語</option>
-        <option value="ko">한국어</option>
-        <option value="th">ภาษาไทย</option>
-        <option value="vi">Tiếng Việt</option>
-      </select>
+      <form id="registerForm" autocomplete="on">
+        <div class="section-title" data-i18n="personalInfo">Personal Information</div>
 
-      <form id="registrationForm">
-        <h2 data-i18n="basicInfo">Basic KYC Information</h2>
+        <div class="grid">
+          <div class="form-group">
+            <label for="surname" data-i18n="surname">Surname</label>
+            <input
+              type="text"
+              id="surname"
+              name="surname"
+              required
+              autocomplete="family-name"
+            />
+          </div>
 
-<label data-i18n="givenNameLabel">Given Name *</label>
+          <div class="form-group">
+            <label for="middleName" data-i18n="middleName">Middle Name</label>
+            <input
+              type="text"
+              id="middleName"
+              name="middleName"
+              autocomplete="additional-name"
+            />
+          </div>
 
-<input
-  type="text"
-  name="givenname"
-  required
-  data-i18n-placeholder="givenNamePlaceholder"
-/>
+          <div class="form-group">
+            <label for="familyName" data-i18n="familyName">Family / Given Name</label>
+            <input
+              type="text"
+              id="familyName"
+              name="familyName"
+              required
+              autocomplete="given-name"
+            />
+          </div>
 
-        <label data-i18n="middleName">Middle Name</label>
-        <input type="text" name="middleName" />
+          <div class="form-group">
+            <label for="nickName" data-i18n="nickName">Nick Name</label>
+            <input
+              type="text"
+              id="nickName"
+              name="nickName"
+              data-i18n-placeholder="nickNamePlaceholder"
+              placeholder="Optional"
+              autocomplete="nickname"
+            />
+          </div>
 
-        <label data-i18n="familyName">Family Name *</label>
-        <input type="text" name="familyName" required />
+          <div class="form-group">
+            <label for="nationality" data-i18n="nationality">Nationality</label>
+            <input
+              type="text"
+              id="nationality"
+              name="nationality"
+              required
+              autocomplete="country-name"
+            />
+          </div>
 
-        <label data-i18n="nationality">Nationality *</label>
-        <input type="text" name="nationality" required />
+          <div class="form-group">
+            <label for="birthday" data-i18n="birthday">Date of Birth</label>
+            <input
+              type="date"
+              id="birthday"
+              name="birthday"
+              required
+            />
+          </div>
 
-        <label data-i18n="birthday">Birthday *</label>
-        <input type="date" name="birthday" required />
-
-        <label data-i18n="idNumber">Passport Number / ID Number *</label>
-        <input type="text" name="idNumber" required />
-
-        <label data-i18n="email">Email *</label>
-        <input type="email" name="email" required />
-
-        <h2 data-i18n="contactInfo">Contact Information</h2>
-
-        <label data-i18n="mobileNumber">Mobile Number *</label>
-        <div class="phone-row">
-          <input type="text" name="countryCode" placeholder="+63" required />
-          <input
-            type="tel"
-            name="mobileNumber"
-            data-i18n-placeholder="mobilePlaceholder"
-            placeholder="Mobile Number"
-            required
-          />
+          <div class="form-group full">
+            <label for="passportId" data-i18n="passportId">Passport / ID Number</label>
+            <input
+              type="text"
+              id="passportId"
+              name="passportId"
+              required
+              autocomplete="off"
+            />
+          </div>
         </div>
 
-        <label>WhatsApp</label>
-        <input type="text" name="whatsapp" />
+        <div class="section-title" data-i18n="contactInfo">Contact Information</div>
 
-        <label>Telegram</label>
-        <input type="text" name="telegram" />
+        <div class="grid">
+          <div class="form-group full">
+            <label for="email" data-i18n="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </div>
 
-        <label>LINE</label>
-        <input type="text" name="line" />
+          <div class="form-group full">
+            <label for="phone" data-i18n="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              autocomplete="tel"
+            />
+          </div>
 
-        <h2 data-i18n="referral">Referral</h2>
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp</label>
+            <input
+              type="text"
+              id="whatsapp"
+              name="whatsapp"
+              autocomplete="off"
+            />
+          </div>
 
-        <label data-i18n="referralMemberId">Referral Member ID</label>
-        <input type="text" name="referralMemberId" />
+          <div class="form-group">
+            <label for="telegram">Telegram</label>
+            <input
+              type="text"
+              id="telegram"
+              name="telegram"
+              autocomplete="off"
+            />
+          </div>
 
-        <h2 data-i18n="termsTitle">Terms and Agreement</h2>
+          <div class="form-group">
+            <label for="line">LINE</label>
+            <input
+              type="text"
+              id="line"
+              name="line"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="referralId" data-i18n="referralId">Referral ID</label>
+            <input
+              type="text"
+              id="referralId"
+              name="referralId"
+              data-i18n-placeholder="referralPlaceholder"
+              placeholder="Optional"
+              autocomplete="off"
+            />
+          </div>
+        </div>
 
         <div class="terms-box">
-          <div class="term-item">
-            <input type="checkbox" id="term1" name="term1" required />
-            <label for="term1">
-              <span class="term-number">1.</span>
-              <span data-i18n="termsText1">
-                I confirm that all information provided is true, complete, and accurate.
-              </span>
-            </label>
-          </div>
+          <label class="checkbox-row">
+            <input type="checkbox" id="agreeTerms" required />
+            <span data-i18n="terms1">
+              I confirm that the information provided is true and accurate.
+            </span>
+          </label>
 
-          <div class="term-item">
-            <input type="checkbox" id="term2" name="term2" required />
-            <label for="term2">
-              <span class="term-number">2.</span>
-              <span data-i18n="termsText2">
-                I agree to register as a member of Everest Poker Room.
-              </span>
-            </label>
-          </div>
+          <label class="checkbox-row">
+            <input type="checkbox" id="agreeAge" required />
+            <span data-i18n="terms2">
+              I confirm that I meet the legal age requirement to enter and participate.
+            </span>
+          </label>
 
-          <div class="term-item">
-            <input type="checkbox" id="term3" name="term3" required />
-            <label for="term3">
-              <span class="term-number">3.</span>
-              <span data-i18n="termsText3">
-                I agree that Everest Poker Room may collect and use my personal information for membership registration, identity verification, customer service, and related operational purposes.
-              </span>
-            </label>
-          </div>
-
-          <div class="term-item">
-            <input type="checkbox" id="term4" name="term4" required />
-            <label for="term4">
-              <span class="term-number">4.</span>
-              <span data-i18n="termsText4">
-                I understand that my membership registration may be reviewed and verified by Everest Poker Room staff.
-              </span>
-            </label>
-          </div>
+          <label class="checkbox-row">
+            <input type="checkbox" id="agreePolicy" required />
+            <span data-i18n="terms3">
+              I agree to follow all Everest Poker Room membership rules and house policies.
+            </span>
+          </label>
         </div>
 
-        <button type="submit" data-i18n="submitButton">Submit Registration</button>
+        <button type="submit" id="submitBtn">
+          <span data-i18n="submit">Submit Registration</span>
+        </button>
 
-        <p id="message"></p>
+        <p id="formMessage" class="form-message"></p>
       </form>
     </section>
-  </main>
 
-  <div id="successModal" class="success-modal hidden">
-    <div class="success-card">
-      <img src="logo.png" alt="Everest Poker Room Logo" class="success-logo" />
-      <div class="success-icon">✓</div>
-      <h2 data-i18n="successTitle">Thank you for registering</h2>
-      <p data-i18n="successText1">
-        Thank you for registering as a member of Everest Poker Room.
-      </p>
-      <p data-i18n="successText2">
-        Your registration has been received.
-      </p>
-      <p data-i18n="successText3">
-        Please visit the counter to provide your ID, complete verification, and receive your member number.
-      </p>
-      <button type="button" id="closeSuccessModal" data-i18n="closeButton">
-        Close
-      </button>
+    <div id="successModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="success-icon">✓</div>
+        <h2 data-i18n="successTitle">Thank you for your registration</h2>
+        <p data-i18n="successText1">
+          Thank you for registering as an Everest Poker Room member.
+        </p>
+        <p data-i18n="successText2">
+          We have received your membership registration information.
+        </p>
+        <p data-i18n="successText3">
+          Please proceed to the counter with your ID to complete identity verification and receive your member code.
+        </p>
+        <button type="button" id="closeModalBtn" data-i18n="closeButton">
+          Close
+        </button>
+      </div>
     </div>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
