@@ -1,6 +1,5 @@
 const MEMBERS_API_URL = "https://script.google.com/macros/s/AKfycbwr5uYjgfcfcHecsngGZHHpepxK_M_Vy-ya1PhdQOpOuD996I8KDADrkdYSmUu6oqL_/exec";
 
-
 const translations = {
   en: {
     title: "Everest Poker Room",
@@ -299,7 +298,7 @@ async function handleSubmit(event) {
   setSubmitting(true, submitBtn);
 
   try {
-    const response = await fetch(MEMBERS_API_URL, {
+    await fetch(MEMBERS_API_URL, {
       method: "POST",
       mode: "no-cors",
       headers: {
