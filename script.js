@@ -224,9 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   registerForm.addEventListener("submit", handleSubmit);
 
-  closeModalBtn.addEventListener("click", () => {
-    closeSuccessModal();
-  });
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", closeSuccessModal);
+  }
 });
 
 function t(key) {
@@ -286,7 +286,8 @@ async function handleSubmit(event) {
     agreedAge: getChecked("agreeAge"),
     agreedPolicy: getChecked("agreePolicy"),
     language: currentLanguage,
-    source: "Register Form"
+    source: "Everest Register Form",
+    submittedAt: new Date().toISOString()
   };
 
   if (!payload.agreedTerms || !payload.agreedAge || !payload.agreedPolicy) {
@@ -308,8 +309,13 @@ async function handleSubmit(event) {
     });
 
     form.reset();
+
+    const languageSelect = document.getElementById("language");
+    languageSelect.value = currentLanguage;
+
     formMessage.textContent = t("successMessage");
     formMessage.classList.add("success");
+
     showSuccessModal();
 
   } catch (error) {
@@ -330,14 +336,31 @@ function getChecked(id) {
 }
 
 function setSubmitting(isSubmitting, button) {
+  if (!button) return;
+
   button.disabled = isSubmitting;
-  button.querySelector("span").textContent = isSubmitting ? t("submitting") : t("submit");
+
+  const span = button.querySelector("span");
+
+  if (span) {
+    span.textContent = isSubmitting ? t("submitting") : t("submit");
+  } else {
+    button.textContent = isSubmitting ? t("submitting") : t("submit");
+  }
 }
 
 function showSuccessModal() {
-  document.getElementById("successModal").classList.remove("hidden");
+  const modal = document.getElementById("successModal");
+
+  if (modal) {
+    modal.classList.remove("hidden");
+  }
 }
 
 function closeSuccessModal() {
-  document.getElementById("successModal").classList.add("hidden");
+  const modal = document.getElementById("successModal");
+
+  if (modal) {
+    modal.classList.add("hidden");
+  }
 }
